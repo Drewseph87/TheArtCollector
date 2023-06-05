@@ -23,7 +23,6 @@ export async function fetchQueryResultsFromTermAndValue(term, value) {
     throw error;
   }
 }
-
 /**
  * This will make a call to the API for a preformed url (useful for previous and next buttons), and return the result
  */
@@ -44,9 +43,9 @@ export async function fetchQueryResultsFromURL(url) {
  * Then makes a call to the API, and returns the first page of results
  */
 export async function fetchQueryResults({
-  century,
-  classification,
-  queryString,
+  century = "",
+  classification = "",
+  queryString = "",
 }) {
   const url = `${BASE_URL}/object?${KEY}&classification=${classification}&century=${century}&keyword=${queryString}`;
 

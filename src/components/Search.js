@@ -77,12 +77,11 @@ const Search = ({ setIsLoading, setSearchResults }) => {
         setIsLoading(true);
 
         try {
-          const response = await fetchQueryResults({
+          const results = await fetchQueryResults({
             century,
             classification,
             queryString,
           });
-          const results = await response.json();
           setSearchResults(results);
         } catch (error) {
           console.error("Couldn't Get Results!", error);
@@ -126,7 +125,7 @@ const Search = ({ setIsLoading, setSearchResults }) => {
           {/* // map over the classificationList, return an <option />  */}
           {classificationList.map((classification) => {
             return (
-              <option value={classification} key={classification.id}>
+              <option value={classification.name} key={classification.id}>
                 {classification.name}
               </option>
             );
@@ -152,7 +151,7 @@ const Search = ({ setIsLoading, setSearchResults }) => {
           {/* map over the centuryList, return an <option /> */}
           {centuryList.map((century) => {
             return (
-              <option value={century} key={century.id}>
+              <option value={century.name} key={century.id}>
                 {century.name}
               </option>
             );

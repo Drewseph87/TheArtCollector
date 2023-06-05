@@ -2,13 +2,7 @@ import React, { useState } from "react";
 import ReactDOM from "react-dom";
 
 // These imports won't work until you fix ./components/index.js
-import {
-  // Feature,
-  Loading,
-  //  Preview,
-  Search,
-  Title,
-} from "./components";
+import { Feature, Loading, Preview, Search, Title } from "./components";
 
 /**
  * We are at the App level component, which is top-most. Any state which needs to be shared between immediate children should
@@ -30,18 +24,18 @@ const App = () => {
       {/* <Search /> needs props for setIsLoading and setSearchResults (trigger <Loading /> on search start/end, and transfer results to preview) */}
       <Search setSearchResults={setSearchResults} setIsLoading={setIsLoading} />
       {/* <Preview /> needs props for searchResults, setIsLoading and setSearchResults (clicking prev/next buttons), and setFeaturedResult (clicking a preview) */}
-      {/* <Preview
+      <Preview
         searchResults={searchResults}
         setIsLoading={setIsLoading}
         setSearchResults={setSearchResults}
         setFeaturedResult={setFeaturedResult}
-      /> */}
+      />
       {/* <Feature /> needs props for featuredResult, as well as setIsLoading and setSearchResults (clicking on searchable properties) */}
-      {/* <Feature
+      <Feature
         featuredResult={featuredResult}
         setIsLoading={setIsLoading}
         setSearchResults={setSearchResults}
-      /> */}
+      />
       {/* <Loading /> is static, but should only render when isLoading is true */}
       {/* use a ternary and render null if isLoading is false */}
       {isLoading ? <Loading /> : null}
